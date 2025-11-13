@@ -1,1 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Daljit Singh - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --accent: #3b82f6;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-content .institution {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Section Styles */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Apps Grid */
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .app-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .app-card .tech {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-card .period {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .app-card a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .app-card a:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Publications */
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .publication-item {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .publication-item h3 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .publication-item .venue {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Patents Grid */
+        .patents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .patent-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .patent-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .patent-card .status {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: #10b981;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        .patent-card .status.pending {
+            background: #f59e0b;
+        }
+
+        /* Certifications Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card {
+            background: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cert-card h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .cert-card .issuer {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cert-card a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .apps-grid,
+            .patents-grid,
+            .certs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">DS Portfolio</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#apps">Apps</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#patents">Patents</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Dr. Daljit Singh</h1>
+            <p class="subtitle">Assistant Professor | Android Developer | Researcher</p>
+            <p class="institution">Department of Electronics and Communication Engineering<br>
+            Guru Nanak Dev Engineering College, Ludhiana, Punjab</p>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/daljit-singh-1a41a2179/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://scholar.google.com/citations?user=S7PX2vsAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://stackoverflow.com/users/1278369/daljit-singh" target="_blank"><i class="fab fa-stack-overflow"></i></a>
+                <a href="mailto:daljithathan@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+919855578987"><i class="fas fa-phone"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apps Section -->
+    <section id="apps">
+        <h2 class="section-title">Android Applications & Websites</h2>
+        <div class="apps-grid">
+            <div class="app-card">
+                <h3>ThinkBox</h3>
+                <p class="tech">Android Studio / Java</p>
+                <p class="period">Aug 2025 - Present</p>
+                <p>Comprehensive educational quiz application with AI-powered question generation, multiplayer mode, and payment integration.</p>
+                <a href="https://play.google.com/store/apps/details?id=hathan.daljit.researchmethodology&hl=en_IN&pli=1" target="_blank">View on Play Store</a>
+            </div>
+
+            <div class="app-card">
+                <h3>ESP32 SmartCore</h3>
+                <p class="tech">Android Studio / IoT</p>
+                <p class="period">April 2025 - Present</p>
+                <p>IoT control application for ESP32 microcontroller integration and smart device management.</p>
+                <a href="https://play.google.com/store/apps/details?id=hathan.daljit.esp32_iot_studentversion_2&hl=en-IN" target="_blank">View on Play Store</a>
+            </div>
+
+            <div class="app-card">
+                <h3>DSP Library</h3>
+                <p class="tech">Android Studio / Educational</p>
+                <p class="period">Aug 2021 - Aug 2025</p>
+                <p>Digital Signal Processing learning application with interactive tutorials and practical implementations.</p>
+                <a href="https://play.google.com/store/apps/details?id=jdkreations.dsp&hl=en-IN" target="_blank">View on Play Store</a>
+            </div>
+
+            <div class="app-card">
+                <h3>MasterQuiz</h3>
+                <p class="tech">Laravel / PHP / MySQL</p>
+                <p class="period">April 2020 - Nov 2025</p>
+                <p>Full-stack quiz platform with advanced question management and student assessment capabilities.</p>
+                <a href="https://masterquiz.in/" target="_blank">Visit Website</a>
+            </div>
+
+            <div class="app-card">
+                <h3>MentorQuiz</h3>
+                <p class="tech">Android Studio / Java</p>
+                <p class="period">Oct 2019 - Aug 2025</p>
+                <p>Educational quiz application designed for competitive exam preparation and skill assessment.</p>
+                <a href="https://play.google.com/store/apps/details?id=jdk.rise.mentorquiz&hl=en-IN" target="_blank">View on Play Store</a>
+            </div>
+
+            <div class="app-card">
+                <h3>Know Your Student</h3>
+                <p class="tech">Android Studio / Database</p>
+                <p class="period">June 2019 - Aug 2025</p>
+                <p>Student database management system for tracking academic progress and attendance.</p>
+                <a href="https://play.google.com/store/apps/details?id=hathan.daljit.studentdb" target="_blank">View on Play Store</a>
+            </div>
+
+            <div class="app-card">
+                <h3>GNDEC Alumni</h3>
+                <p class="tech">Android Studio / WebView</p>
+                <p class="period">Aug 2021 - Jan 2023</p>
+                <p>Official alumni application for GNDEC connecting graduates and fostering community engagement.</p>
+                <a href="https://play.google.com/store/apps/details?id=genco.os.webview" target="_blank">View on Play Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications">
+        <h2 class="section-title">Research Publications</h2>
+        <div class="publications-list">
+            <div class="publication-item">
+                <h3>Classification of abnormalities in Brain MRI images using GLCM, PCA and SVM</h3>
+                <p class="venue">International Journal of Engineering and Advanced Technology</p>
+                <a href="https://journaldatabase.info/articles/classification_abnormalities_brain_mri.html" target="_blank">View Paper</a>
+            </div>
+
+            <div class="publication-item">
+                <h3>Brain CT-Scan Images Classification Using PCA, Wavelet Transform and KNN</h3>
+                <p class="venue">International Journal of Advanced Research in Computer Science and Electronics Engineering</p>
+                <a href="https://www.academia.edu/8083557/Brain_CT_Scan_Images_Classification_Using_PCA_Wavelet_Transform_and_K_NN" target="_blank">View Paper</a>
+            </div>
+
+            <div class="publication-item">
+                <h3>Early Detection and Classification of Diabetic Retinopathy Using Empirical Transform and SVM</h3>
+                <p class="venue">Springer International Publishing</p>
+                <a href="https://drive.google.com/file/d/1AmOpeMLAwT4S9gXqTiQvd4z2bkh-fN8_/view?usp=sharing" target="_blank">View Paper</a>
+            </div>
+
+            <div class="publication-item">
+                <h3>Hybrid Technique for Human Spine MRI Classification</h3>
+                <p class="venue">International Journal of Current Engineering and Technology</p>
+                <a href="https://www.academia.edu/37737192/Hybrid_Technique_for_Human_Spine_MRI_Classification" target="_blank">View Paper</a>
+            </div>
+
+            <div class="publication-item">
+                <h3>Performance Analysis of MADM Techniques in Cognitive Radio for Proximity Services</h3>
+                <p class="venue">Springer Nature Singapore</p>
+                <a href="https://link.springer.com/chapter/10.1007/978-981-99-0601-7_29" target="_blank">View Paper</a>
+            </div>
+
+            <div class="publication-item">
+                <h3>Design and Implementation of Preferential Voting Machine using PIC18F4520</h3>
+                <p class="venue">International Journal of Electronics and Communication Technology</p>
+                <a href="https://www.semanticscholar.org/paper/Design-and-Implementation-of-Preferential-Voting-Singh-Singh/c6abd998f3ab4ab50aeddc5d3a661511c0b1d52c" target="_blank">View Paper</a>
+            </div>
+
+            <div class="publication-item">
+                <h3>Internet of Medical Things and its Impact on E-Healthcare Sector with Block-Chain Technology</h3>
+                <p class="venue">International Journal of Advance Research Publication and Reviews (Feb 2025)</p>
+            </div>
+
+            <div class="publication-item">
+                <h3>Harnessing Immune mechanisms for cyber security- An Intrusion detection approach</h3>
+                <p class="venue">International Journal of Scientific Development and Research (May 2025)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Patents Section -->
+    <section id="patents">
+        <h2 class="section-title">Patents</h2>
+        <div class="patents-grid">
+            <div class="patent-card">
+                <h3>Automatic Stamping Device</h3>
+                <p><strong>Application No:</strong> GNCIPR.1004/202111019472</p>
+                <p><strong>Filed:</strong> 28/04/2021</p>
+                <span class="status">Granted: 04/01/2024</span>
+            </div>
+
+            <div class="patent-card">
+                <h3>Battery Water Level Indicator Cap</h3>
+                <p><strong>Application No:</strong> GNCIPR.1026/434532-001</p>
+                <p><strong>Filed:</strong> 16/10/2024</p>
+                <span class="status">Granted: 23/12/2024</span>
+            </div>
+
+            <div class="patent-card">
+                <h3>Traffic Regulation System for Prioritizing Emergency Vehicles</h3>
+                <p><strong>Application No:</strong> GNCIPR.1006/202411031628</p>
+                <p><strong>Filed:</strong> 21/04/2024</p>
+                <span class="status pending">Under Review</span>
+            </div>
+
+            <div class="patent-card">
+                <h3>Railway Crossing Protection and Hazard Management System</h3>
+                <p><strong>Application No:</strong> GNCIPR.1027/202511057800</p>
+                <p><strong>Filed:</strong> 16/06/2025</p>
+                <span class="status pending">Under Review</span>
+            </div>
+
+            <div class="patent-card">
+                <h3>Integrated Air Purifier, Oxygen Concentrator and Humidifier</h3>
+                <p><strong>Application No:</strong> GNCIP.1029</p>
+                <p><strong>Filed:</strong> 18/06/2025</p>
+                <span class="status pending">Under Review</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2 class="section-title">Certifications & Training</h2>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <h4>Java Level 1 & 2</h4>
+                <p class="issuer">Cambridge Certification Authority</p>
+                <a href="https://drive.google.com/file/d/16VV3CbaqrT1L_UvIh-e7jU7Yku3kgrLI/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>AI for Engineering Applications</h4>
+                <p class="issuer">NITTTR, Chandigarh (Nov 2024)</p>
+                <a href="https://fdp.nitttrchd.ac.in/fdp2025/pdfcertiict.php?oplan=COE-3&year=2024-2025&id=COE-324177929" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Drone Technologies & Regulations</h4>
+                <p class="issuer">NITTTR, Chandigarh (Nov 2024)</p>
+                <a href="https://fdp.nitttrchd.ac.in/fdp2025/pdfcerti1.php?oplan=ECE-11&year=2024-2025&id=ECE-1124182809" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Generative AI Foundation</h4>
+                <p class="issuer">upGrad (Aug 2025)</p>
+            </div>
+
+            <div class="cert-card">
+                <h4>Internet of Things</h4>
+                <p class="issuer">IIT Bombay</p>
+                <a href="https://drive.google.com/file/d/1mVXxgwdMcEoKxSfkv6cFEs0RnYKEd5RF/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Machine Learning</h4>
+                <p class="issuer">GNDEC</p>
+                <a href="https://drive.google.com/file/d/1t3OD0R7Itg3PJ-hK3iaVwNWQgWvE_qP3/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Artificial Intelligence</h4>
+                <p class="issuer">NSIC, Rajpura</p>
+                <a href="https://drive.google.com/file/d/17el9LkgoGvwtlXoND3gMAlrxhpx03fMp/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Introduction to Python Programming</h4>
+                <p class="issuer">Udemy</p>
+                <a href="https://drive.google.com/file/d/1ZAMuUqjm488Qsmxtwy6H2NIsJ_3xASik/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Learn to Program in JavaScript</h4>
+                <p class="issuer">Udemy</p>
+                <a href="https://drive.google.com/file/d/1x4GPqM714_Oq1W11TsL4bYSrOFsiLQss/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Web Design for Web Developers</h4>
+                <p class="issuer">Udemy</p>
+                <a href="https://drive.google.com/file/d/1JBWK2DDV52QjSQES8qoEpbUeAU5_OjRJ/view?usp=sharing" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Laravel VueJS Private Chat-App</h4>
+                <p class="issuer">Udemy</p>
+                <a href="https://drive.google.com/file/d/1e5RE4urhGz_GNeq9gqvi9sqs2hsE5CHv/view" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <h4>Android Development NDK</h4>
+                <p class="issuer">Udemy</p>
+                <a href="https://drive.google.com/file/d/1Q4Qt3v9_eAl6mQAKyL4Efkr99fcWKvae/view" target="_blank">View Certificate</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dr. Daljit Singh. All Rights Reserved.</p>
+        <p>Assistant Professor, ECE Department, GNDEC Ludhiana</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.app-card, .publication-item, .patent-card, .cert-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
 
