@@ -1,4 +1,304 @@
 <!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Daljit Singh - Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 60%, #2563eb 100%);
+        }
+        .sidebar-sticky {
+            position: sticky;
+            top: 2rem;
+            height: calc(100vh - 4rem);
+        }
+        .group.active-link .nav-indicator {
+            width: 4rem;
+            background: #2563eb;
+        }
+        .group.active-link .nav-text {
+            color: #2563eb;
+        }
+        .glass-card {
+            background: rgba(31,41,55,0.8);
+            border: 1px solid #2563eb44;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 12px 0 #2563eb22;
+            transition: box-shadow .3s;
+        }
+        .glass-card:hover {
+            box-shadow: 0 8px 24px 0 #2563eb66;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-200 antialiased">
+    <main class="max-w-7xl mx-auto p-4 md:p-8 lg:grid lg:grid-cols-3 lg:gap-12">
+        <!-- Left/Sidebar Column -->
+        <header class="lg:col-span-1 sidebar-sticky flex flex-col justify-between mb-8 lg:mb-0">
+            <div class="space-y-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-sky-400">Dr. Daljit Singh</h1>
+                <p class="text-xl font-medium text-cyan-400">Assistant Professor, ECE</p>
+                <p class="text-slate-400">Guru Nanak Dev Engineering College, Ludhiana</p>
+                <div class="my-4 flex gap-3 text-lg">
+                    <a href="mailto:daljithathan@gmail.com" class="hover:text-cyan-500" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="tel:+91-98555-78987" class="hover:text-cyan-500" title="Phone"><i class="fa-solid fa-phone"></i></a>
+                    <a href="https://www.linkedin.com/in/daljit-singh-1a41a2179/" target="_blank" class="hover:text-cyan-500" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://stackoverflow.com/users/1278369/daljit-singh" target="_blank" class="hover:text-cyan-500" title="StackOverflow"><i class="fa-brands fa-stack-overflow"></i></a>
+                    <a href="https://scholar.google.com/citations?user=S7PX2vsAAAAJ&hl=en" target="_blank" class="hover:text-cyan-500" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a>
+                </div>
+                <div class="text-slate-300 space-y-3 text-justify">
+                    <p>
+                        Serving as Assistant Professor since 2014, GNDEC Ludhiana. Holds Master's in ECE with research focus on Digital Image Processing.
+                        Published 12 research papers in international journals and 9 in conferences. Authored a research paper on image classification with 100+ citations.
+                    </p>
+                    <p>
+                        Expertise: Embedded systems (Arduino, 8051, PIC), PLCs, web development (Laravel, PHP, MySQL, JS), Android & app development, AI, teaching DSP, Robotics, Control Systems, Computer Science. 
+                    </p>
+                </div>
+            </div>
+            <nav class="hidden lg:block my-8">
+                <ul class="flex flex-col gap-2" id="sidebar-nav">
+                    <li>
+                        <a href="#apps" class="group flex items-center gap-4 py-2">
+                            <span class="nav-indicator h-px w-8 bg-slate-500 group-hover:w-16 transition-all"></span>
+                            <span class="nav-text text-sm font-bold uppercase tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">Apps</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#patents" class="group flex items-center gap-4 py-2">
+                            <span class="nav-indicator h-px w-8 bg-slate-500 group-hover:w-16 transition-all"></span>
+                            <span class="nav-text text-sm font-bold uppercase tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">Patents</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#papers" class="group flex items-center gap-4 py-2">
+                            <span class="nav-indicator h-px w-8 bg-slate-500 group-hover:w-16 transition-all"></span>
+                            <span class="nav-text text-sm font-bold uppercase tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">Publications</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#certifications" class="group flex items-center gap-4 py-2">
+                            <span class="nav-indicator h-px w-8 bg-slate-500 group-hover:w-16 transition-all"></span>
+                            <span class="nav-text text-sm font-bold uppercase tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">Certifications</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#subjects" class="group flex items-center gap-4 py-2">
+                            <span class="nav-indicator h-px w-8 bg-slate-500 group-hover:w-16 transition-all"></span>
+                            <span class="nav-text text-sm font-bold uppercase tracking-widest text-slate-500 group-hover:text-cyan-400 transition-colors">Subjects Taught</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!-- Right/Main Column -->
+        <div class="lg:col-span-2 flex flex-col gap-12 pt-4">
+            <!-- Apps/Projects -->
+            <section id="apps">
+                <h2 class="text-2xl font-semibold text-sky-300 mb-5 flex items-center gap-3"><i class="fa-solid fa-laptop-code"></i>Android Apps & Websites</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <!-- Modern glass cards for each app/project -->
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">ThinkBox</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Android Studio/App</p>
+                        <p class="text-sm text-slate-300">Aug 2025-Present: Full-featured AI quiz, multiplayer, payment integration.</p>
+                        <a href="https://play.google.com/store/apps/details?id=hathan.daljit.researchmethodology" 
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">View on Play Store &rarr;</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">ESP32 SmartCore</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Android Studio/App</p>
+                        <p class="text-sm text-slate-300">Apr 2025-Present: ESP32 IoT control and smart device platform.</p>
+                        <a href="https://play.google.com/store/apps/details?id=hathan.daljit.esp32_iot_studentversion_2"
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">View on Play Store &rarr;</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">DSP Library</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Android Studio/App</p>
+                        <p class="text-sm text-slate-300">Aug 2021-Aug 2025: DSP learning with hands-on tutorials.</p>
+                        <a href="https://play.google.com/store/apps/details?id=jdkreations.dsp"
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">View on Play Store &rarr;</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">MasterQuiz</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Laravel/Website</p>
+                        <p class="text-sm text-slate-300">Apr 2020-Nov 2025: Advanced quiz platform for assessments.</p>
+                        <a href="https://masterquiz.in/"
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">Visit Website &rarr;</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">MentorQuiz</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Android Studio/App</p>
+                        <p class="text-sm text-slate-300">Oct 2019-Aug 2025: Competitive exam prep quizzes.</p>
+                        <a href="https://play.google.com/store/apps/details?id=jdk.rise.mentorquiz"
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">View on Play Store &rarr;</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">Know Your Student</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Android Studio/App</p>
+                        <p class="text-sm text-slate-300">Jun 2019-Aug 2025: Academic database management.</p>
+                        <a href="https://play.google.com/store/apps/details?id=hathan.daljit.studentdb"
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">View on Play Store &rarr;</a>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl shadow-lg">
+                        <h3 class="font-bold text-lg text-white">GNDEC Alumni</h3>
+                        <p class="text-sm text-cyan-400 mb-2">Android Studio/App</p>
+                        <p class="text-sm text-slate-300">Aug 2021-Jan 2023: Alumni network app for GNDEC.</p>
+                        <a href="https://play.google.com/store/apps/details?id=genco.os.webview"
+                           class="inline-block mt-3 text-cyan-300 hover:text-cyan-400 text-sm font-medium">View on Play Store &rarr;</a>
+                    </div>
+                </div>
+            </section>
+            <!-- Patents Section -->
+            <section id="patents">
+                <h2 class="text-2xl font-semibold text-sky-300 mb-5 flex items-center gap-3"><i class="fa-solid fa-lightbulb"></i>Patents</h2>
+                <div class="grid gap-5">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Automatic Stamping Device</h3>
+                        <p class="text-sm text-slate-400">App No: GNCIPR.1004/202111019472 | Filed: 28/04/2021 <span class="inline-block ml-2 font-semibold text-emerald-300">Granted: 04/01/2024</span></p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Battery Water Level Indicator Cap</h3>
+                        <p class="text-sm text-slate-400">App No: GNCIPR.1026/434532-001 | Filed: 16/10/2024 <span class="inline-block ml-2 font-semibold text-emerald-300">Granted: 23/12/2024</span></p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Traffic Regulation System for Emergency Vehicles</h3>
+                        <p class="text-sm text-slate-400">App No: GNCIPR.1006/202411031628 | Filed: 21/04/2024 <span class="ml-2 font-semibold text-yellow-300">Under Review</span></p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Railway Crossing Protection & Hazard Management</h3>
+                        <p class="text-sm text-slate-400">App No: GNCIPR.1027/202511057800 | Filed: 16/06/2025 <span class="ml-2 font-semibold text-yellow-300">Under Review</span></p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Integrated Air Purifier, Oxygen Concentrator & Humidifier</h3>
+                        <p class="text-sm text-slate-400">App No: GNCIP.1029 | Filed: 18/06/2025 <span class="ml-2 font-semibold text-yellow-300">Under Review</span></p>
+                    </div>
+                </div>
+            </section>
+            <!-- Publications Section -->
+            <section id="papers">
+                <h2 class="text-2xl font-semibold text-sky-300 mb-5 flex items-center gap-3"><i class="fa-solid fa-file-lines"></i>Research Publications</h2>
+                <div class="grid gap-5">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Immune Inspired Cyber Defence-An Intrusion Detection Approach</h3>
+                        <p class="text-sm text-cyan-400">JETIR, July 2025</p>
+                        <p class="text-sm text-slate-300">Jashanjot Kaur, Kuldeepak Singh</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Harnessing Immune mechanisms for cyber security- An Intrusion detection approach</h3>
+                        <p class="text-sm text-cyan-400">IJSDR, May 2025</p>
+                        <p class="text-sm text-slate-300">Jashanjot Kaur, Daljit Singh</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Internet of Medical Things: E-Healthcare & Blockchain</h3>
+                        <p class="text-sm text-cyan-400">IJARP, Feb 2025</p>
+                        <p class="text-sm text-slate-300">Ajaypal S Mahal, Daljit Singh</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Performance Analysis of MADM Techniques in Cognitive Radio</h3>
+                        <p class="text-sm text-cyan-400">Springer Nature Singapore</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Early Detection and Classification of Diabetic Retinopathy Using Empirical Transform and SVM</h3>
+                        <p class="text-sm text-cyan-400">Springer International Publishing</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Classification of abnormalities in Brain MRI images using GLCM, PCA, SVM</h3>
+                        <p class="text-sm text-cyan-400">IJ Engineering & Advanced Tech</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Brain CT-Scan Images Classification Using PCA, Wavelet Transform and KNN</h3>
+                        <p class="text-sm text-cyan-400">IJ Advanced Res. Comp Sci. & Elec. Engg.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Hybrid Technique for Human Spine MRI Classification</h3>
+                        <p class="text-sm text-cyan-400">IJ Current Engg & Tech.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="font-bold text-white">Design and Implementation of Preferential Voting Machine using PIC18F4520</h3>
+                        <p class="text-sm text-cyan-400">IJ Electronics & Communication Tech</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Certifications Section -->
+            <section id="certifications">
+                <h2 class="text-2xl font-semibold text-sky-300 mb-5 flex items-center gap-3"><i class="fa-solid fa-certificate"></i>Certifications & Training</h2>
+                <div class="columns-1 md:columns-2">
+                    <ul class="list-disc list-inside space-y-2 text-slate-200">
+                        <li><span class="font-semibold text-white">Generative AI Foundation</span> <span class="text-cyan-400">(upGrad)</span></li>
+                        <li><span class="font-semibold text-white">AI for Engineering Applications</span> <span class="text-cyan-400">(NITTTR, Chandigarh)</span></li>
+                        <li><span class="font-semibold text-white">Drone Technologies & Regulations</span> <span class="text-cyan-400">(NITTTR, Chandigarh)</span></li>
+                        <li><span class="font-semibold text-white">Internet of Things</span> <span class="text-cyan-400">(IIT Bombay)</span></li>
+                        <li><span class="font-semibold text-white">Machine Learning</span> <span class="text-cyan-400">(GNDEC)</span></li>
+                        <li><span class="font-semibold text-white">Artificial Intelligence</span> <span class="text-cyan-400">(NSIC, Rajpura)</span></li>
+                        <li><span class="font-semibold text-white">Java Level 1 & 2</span> <span class="text-cyan-400">(Cambridge Certification Authority)</span></li>
+                        <li><span class="font-semibold text-white">Web Design for Web Developers</span> <span class="text-cyan-400">(Udemy)</span></li>
+                        <li><span class="font-semibold text-white">Laravel VueJS Private Chat-App</span> <span class="text-cyan-400">(Udemy)</span></li>
+                        <li><span class="font-semibold text-white">Android Development NDK</span> <span class="text-cyan-400">(Udemy)</span></li>
+                        <li><span class="font-semibold text-white">Introduction to Python Programming</span> <span class="text-cyan-400">(Udemy)</span></li>
+                        <li><span class="font-semibold text-white">Learn to Program in JavaScript</span> <span class="text-cyan-400">(Udemy)</span></li>
+                        <li><span class="font-semibold text-white">SQL Fundamentals Course</span> <span class="text-cyan-400">(SoloLearn)</span></li>
+                        <li><span class="font-semibold text-white">Google Analytics</span> <span class="text-cyan-400">(Google Academy)</span></li>
+                        <li><span class="font-semibold text-white">MATLAB Onramp</span> <span class="text-cyan-400">(MathWorks)</span></li>
+                        <!-- Add more as needed from both files -->
+                    </ul>
+                </div>
+            </section>
+            <!-- Subjects Taught Section -->
+            <section id="subjects">
+                <h2 class="text-2xl font-semibold text-sky-300 mb-5 flex items-center gap-3"><i class="fa-solid fa-chalkboard-user"></i>Subjects Taught</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Digital Signal Processing</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Linear Control System</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Advance DSP</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Intelligent Robotics</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Electronic Devices Circuits</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Network Analysis Synthesis</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Mobile Computing</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Electromagnetic Field Theory</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Programmable Logic Controller</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Human Resource Management</span>
+                    <span class="bg-slate-700 px-3 py-1.5 rounded-full text-sm font-medium">Quant and Reasoning (PEP)</span>
+                    <!-- Add more subjects as needed -->
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="text-center text-slate-500 mt-16 pb-8">
+        <p>&copy; 2025 Dr. Daljit Singh. All rights reserved.</p>
+        <p class="text-sm mt-1">Built with HTML, Tailwind CSS, and Font Awesome.</p>
+    </footer>
+    <script>
+        // Highlight active section in sidebar nav
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#sidebar-nav a');
+            const navLinkMap = {};
+            navLinks.forEach(link => navLinkMap[link.getAttribute('href')] = link.parentElement);
+            const onScroll = () => {
+                const scrollY = window.scrollY || document.documentElement.scrollTop;
+                const offset = 160;
+                sections.forEach(section => {
+                    if (scrollY + offset >= section.offsetTop && scrollY + offset < section.offsetTop + section.offsetHeight) {
+                        navLinks.forEach(link => link.parentElement.classList.remove('active-link'));
+                        const currentId = '#' + section.getAttribute('id');
+                        navLinkMap[currentId]?.classList.add('active-link');
+                    }
+                });
+            };
+            window.addEventListener('scroll', onScroll); onScroll();
+        });
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -657,4 +957,4 @@
     </script>
 </body>
 </html>
-
+ -->
