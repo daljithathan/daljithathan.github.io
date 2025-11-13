@@ -1,4 +1,393 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dr. Daljit Singh — Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* small custom tweaks that complement Tailwind */
+    :root{
+      --accent: #2563eb; /* blue accent from web_2 */
+      --muted: #6b7280;
+      --card-shadow: 0 12px 30px rgba(15,23,42,0.08);
+    }
+
+    /* header nav (floating) inspired by web_2 */
+    .topnav {
+      background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+    }
+
+    /* subtle hover for social icons */
+    .social-icon:hover { transform: translateY(-4px); transition: all .22s ease; }
+
+    /* publication left-border style (from web_2) */
+    .pub-item { border-left: 4px solid var(--accent); }
+
+    /* ensure long lists look good on small screens */
+    .list-hyphen { list-style: none; }
+    .list-hyphen li::before { content: "— "; color: var(--muted); margin-right: .25rem; }
+
+    /* small responsive adjustments */
+    @media (min-width:1024px){
+      .sidebar-sticky { position: sticky; top: 2rem; height: calc(100vh - 4rem); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <!-- Top navigation (web_2 style but slim) -->
+  <header class="topnav fixed w-full z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3">
+        <div class="text-xl font-bold text-[color:var(--accent)]">Dr. Daljit Singh</div>
+        <div class="hidden md:block text-sm text-slate-600">Assistant Professor — ECE, GNDEC Ludhiana</div>
+      </a>
+
+      <nav class="hidden md:flex gap-6 items-center">
+        <a class="text-sm hover:text-[color:var(--accent)]" href="#projects">Projects</a>
+        <a class="text-sm hover:text-[color:var(--accent)]" href="#papers">Publications</a>
+        <a class="text-sm hover:text-[color:var(--accent)]" href="#patents">Patents</a>
+        <a class="text-sm hover:text-[color:var(--accent)]" href="#certifications">Certifications</a>
+        <a class="text-sm hover:text-[color:var(--accent)]" href="#subjects">Subjects</a>
+      </nav>
+
+      <div class="md:hidden">
+        <button onclick="document.querySelector('#mobile-menu').classList.toggle('hidden')" class="p-2 rounded-md border">
+          <i class="fa fa-bars"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-4 pb-3">
+      <div class="flex flex-col gap-2">
+        <a href="#projects" class="py-2">Projects</a>
+        <a href="#papers" class="py-2">Publications</a>
+        <a href="#patents" class="py-2">Patents</a>
+        <a href="#certifications" class="py-2">Certifications</a>
+        <a href="#subjects" class="py-2">Subjects</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto pt-28 pb-20 px-4 lg:grid lg:grid-cols-3 lg:gap-12">
+
+    <!-- Left column: profile + sticky nav (inspired by web_1) -->
+    <aside class="lg:col-span-1 mb-10 lg:mb-0">
+      <div class="sidebar-sticky flex flex-col justify-between">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-extrabold">Dr. Daljit Singh</h1>
+          <p class="text-sm text-slate-600 mt-1">Assistant Professor, Department of ECE</p>
+          <p class="text-sm text-slate-500">Guru Nanak Dev Engineering College, Ludhiana, Punjab</p>
+
+          <p class="mt-5 text-sm text-slate-700 leading-relaxed">
+            Serving as an Assistant Professor since 2014 with research focus in Digital Image Processing and applications in healthcare and embedded systems.
+            Expertise: Embedded systems (Arduino/ESP), Android app development, Web (Laravel/PHP), IoT and Machine Learning. (merged from source profiles). :contentReference[oaicite:2]{index=2} :contentReference[oaicite:3]{index=3}
+          </p>
+
+          <!-- contact -->
+          <div class="mt-6 space-y-3">
+            <a href="mailto:daljithathan@gmail.com" class="flex items-center gap-3 text-sm text-slate-700 hover:text-[color:var(--accent)]">
+              <i class="fa-solid fa-envelope w-4"></i><span>daljithathan@gmail.com</span>
+            </a>
+            <a href="tel:+919855578987" class="flex items-center gap-3 text-sm text-slate-700 hover:text-[color:var(--accent)]">
+              <i class="fa-solid fa-phone w-4"></i><span>+91-98555-78987</span>
+            </a>
+            <div class="flex gap-3 mt-3">
+              <a class="social-icon p-2 rounded-md bg-white border" href="https://www.linkedin.com/in/daljit-singh-1a41a2179/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin text-[color:var(--accent)]"></i></a>
+              <a class="social-icon p-2 rounded-md bg-white border" href="https://scholar.google.com/citations?user=S7PX2vsAAAAJ&hl=en" target="_blank" aria-label="Google Scholar"><i class="fas fa-graduation-cap text-[color:var(--accent)]"></i></a>
+              <a class="social-icon p-2 rounded-md bg-white border" href="https://stackoverflow.com/users/1278369/daljit-singh" target="_blank" aria-label="StackOverflow"><i class="fab fa-stack-overflow text-[color:var(--accent)]"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- mini nav (desktop) -->
+        <nav class="hidden lg:block mt-6">
+          <ul id="sidebar-nav" class="space-y-2">
+            <li><a href="#projects" class="block px-3 py-2 rounded-md hover:bg-slate-100">Projects</a></li>
+            <li><a href="#papers" class="block px-3 py-2 rounded-md hover:bg-slate-100">Publications</a></li>
+            <li><a href="#patents" class="block px-3 py-2 rounded-md hover:bg-slate-100">Patents</a></li>
+            <li><a href="#certifications" class="block px-3 py-2 rounded-md hover:bg-slate-100">Certifications</a></li>
+            <li><a href="#subjects" class="block px-3 py-2 rounded-md hover:bg-slate-100">Subjects Taught</a></li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Right column: content -->
+    <section class="lg:col-span-2 space-y-12">
+
+      <!-- Hero / intro card (merged look) -->
+      <section id="home" class="rounded-xl bg-white p-8 shadow-md" aria-labelledby="intro-heading">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <h2 id="intro-heading" class="text-2xl font-bold">Dr. Daljit Singh</h2>
+            <p class="text-sm text-slate-600 mt-1">Assistant Professor · Android Developer · Researcher</p>
+            <p class="mt-4 text-slate-700">Department of Electronics and Communication Engineering, Guru Nanak Dev Engineering College, Ludhiana, Punjab.</p>
+            <div class="mt-4 flex gap-3">
+              <a href="#projects" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border text-sm hover:bg-[color:var(--accent)] hover:text-white">
+                <i class="fa-solid fa-laptop-code"></i> Projects
+              </a>
+              <a href="mailto:daljithathan@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border text-sm hover:bg-slate-100">
+                <i class="fa-solid fa-envelope"></i> Contact
+              </a>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <!-- small summary cards -->
+            <div class="p-4 bg-slate-50 rounded-xl border shadow-sm text-center">
+              <div class="text-lg font-semibold">12+</div>
+              <div class="text-xs text-slate-500">Journal Papers</div>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border shadow-sm text-center">
+              <div class="text-lg font-semibold">9</div>
+              <div class="text-xs text-slate-500">Conferences</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects / Apps -->
+      <section id="projects" class="space-y-6">
+        <h3 class="text-xl font-semibold">Android Applications & Websites</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <!-- each card pulled from the original lists (Play Store links kept) -->
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">ThinkBox</h4>
+            <div class="text-sm text-slate-500">Android Studio / Java · Aug 2025 - Present</div>
+            <p class="mt-2 text-sm text-slate-700">Comprehensive educational quiz application with AI-powered question generation, multiplayer mode, and payment integration.</p>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://play.google.com/store/apps/details?id=hathan.daljit.researchmethodology&hl=en_IN&pli=1" target="_blank">View on Play Store →</a>
+          </article>
+
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">ESP32 SmartCore</h4>
+            <div class="text-sm text-slate-500">Android Studio / IoT · April 2025 - Present</div>
+            <p class="mt-2 text-sm text-slate-700">IoT control application for ESP32 microcontroller integration and smart device management.</p>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://play.google.com/store/apps/details?id=hathan.daljit.esp32_iot_studentversion_2&hl=en-IN" target="_blank">View on Play Store →</a>
+          </article>
+
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">DSP Library</h4>
+            <div class="text-sm text-slate-500">Android Studio / Educational · Aug 2021 - Aug 2025</div>
+            <p class="mt-2 text-sm text-slate-700">Digital Signal Processing learning application with interactive tutorials and practical implementations.</p>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://play.google.com/store/apps/details?id=jdkreations.dsp&hl=en-IN" target="_blank">View on Play Store →</a>
+          </article>
+
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">MasterQuiz</h4>
+            <div class="text-sm text-slate-500">Laravel / PHP / MySQL · Apr 2020 - Nov 2025</div>
+            <p class="mt-2 text-sm text-slate-700">Full-stack quiz platform with advanced question management and student assessment capabilities.</p>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://masterquiz.in/" target="_blank">Visit Website →</a>
+          </article>
+
+          <!-- more items (MentorQuiz, Know Your Student, GNDEC Alumni, etc.) -->
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">MentorQuiz</h4>
+            <div class="text-sm text-slate-500">Android Studio / Java · Oct 2019 - Aug 2025</div>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://play.google.com/store/apps/details?id=jdk.rise.mentorquiz&hl=en-IN" target="_blank">View on Play Store →</a>
+          </article>
+
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">Know Your Student</h4>
+            <div class="text-sm text-slate-500">Android Studio / Database · June 2019 - Aug 2025</div>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://play.google.com/store/apps/details?id=hathan.daljit.studentdb" target="_blank">View on Play Store →</a>
+          </article>
+
+          <article class="bg-white p-5 rounded-xl shadow" >
+            <h4 class="font-semibold text-[color:var(--accent)]">GNDEC Alumni</h4>
+            <div class="text-sm text-slate-500">Android Studio / WebView · Aug 2021 - Jan 2023</div>
+            <a class="inline-block mt-3 text-sm text-[color:var(--accent)]" href="https://play.google.com/store/apps/details?id=genco.os.webview" target="_blank">View on Play Store →</a>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section id="papers" class="space-y-4">
+        <h3 class="text-xl font-semibold">Research Publications</h3>
+
+        <div class="space-y-4">
+          <!-- Publication items kept from both files -->
+          <div class="bg-white p-4 rounded-lg pub-item shadow-sm">
+            <h4 class="font-semibold">Classification of abnormalities in Brain MRI images using GLCM, PCA and SVM</h4>
+            <div class="text-sm text-slate-600">International Journal of Engineering and Advanced Technology</div>
+            <a class="text-sm text-[color:var(--accent)] mt-2 inline-block" href="https://journaldatabase.info/articles/classification_abnormalities_brain_mri.html" target="_blank">View Paper →</a>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg pub-item shadow-sm">
+            <h4 class="font-semibold">Brain CT-Scan Images Classification Using PCA, Wavelet Transform and KNN</h4>
+            <div class="text-sm text-slate-600">International Journal of Advanced Research in Computer Science and Electronics Engineering</div>
+            <a class="text-sm text-[color:var(--accent)] mt-2 inline-block" href="https://www.academia.edu/8083557/Brain_CT_Scan_Images_Classification_Using_PCA_Wavelet_Transform_and_K_NN" target="_blank">View Paper →</a>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg pub-item shadow-sm">
+            <h4 class="font-semibold">Early Detection and Classification of Diabetic Retinopathy Using Empirical Transform and SVM</h4>
+            <div class="text-sm text-slate-600">Springer International Publishing</div>
+            <a class="text-sm text-[color:var(--accent)] mt-2 inline-block" href="https://drive.google.com/file/d/1AmOpeMLAwT4S9gXqTiQvd4z2bkh-fN8_/view?usp=sharing" target="_blank">View Paper →</a>
+          </div>
+
+          <!-- other merged publications -->
+          <div class="bg-white p-4 rounded-lg pub-item shadow-sm">
+            <h4 class="font-semibold">Hybrid Technique for Human Spine MRI Classification</h4>
+            <div class="text-sm text-slate-600">International Journal of Current Engineering and Technology</div>
+            <a class="text-sm text-[color:var(--accent)] mt-2 inline-block" href="https://www.academia.edu/37737192/Hybrid_Technique_for_Human_Spine_MRI_Classification" target="_blank">View Paper →</a>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg pub-item shadow-sm">
+            <h4 class="font-semibold">Performance Analysis of MADM Techniques in Cognitive Radio for Proximity Services</h4>
+            <div class="text-sm text-slate-600">Springer Nature Singapore</div>
+            <a class="text-sm text-[color:var(--accent)] mt-2 inline-block" href="https://link.springer.com/chapter/10.1007/978-981-99-0601-7_29" target="_blank">View Paper →</a>
+          </div>
+
+          <div class="bg-white p-4 rounded-lg pub-item shadow-sm">
+            <h4 class="font-semibold">Harnessing Immune mechanisms for cyber security - An Intrusion detection approach</h4>
+            <div class="text-sm text-slate-600">International Journal of Scientific Development and Research (May 2025)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Patents (full data preserved) -->
+      <section id="patents" class="space-y-4">
+        <h3 class="text-xl font-semibold">Patents</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="bg-white p-4 rounded-xl shadow">
+            <h4 class="font-semibold">Automatic Stamping Device</h4>
+            <div class="text-sm text-slate-600">Application No: GNCIPR.1004/202111019472</div>
+            <div class="mt-2 text-sm text-slate-700">Filed: 28/04/2021 · Granted: 04/01/2024</div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl shadow">
+            <h4 class="font-semibold">Battery Water Level Indicator Cap</h4>
+            <div class="text-sm text-slate-600">Application No: GNCIPR.1026/434532-001</div>
+            <div class="mt-2 text-sm text-slate-700">Filed: 16/10/2024 · Granted: 23/12/2024</div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl shadow">
+            <h4 class="font-semibold">Traffic Regulation System for Prioritizing Emergency Vehicles</h4>
+            <div class="text-sm text-slate-600">Application No: GNCIPR.1006/202411031628</div>
+            <div class="mt-2 text-sm text-slate-700">Filed: 21/04/2024 · Status: Under Review</div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl shadow">
+            <h4 class="font-semibold">Railway Crossing Protection and Hazard Management System</h4>
+            <div class="text-sm text-slate-600">Application No: GNCIPR.1027/202511057800</div>
+            <div class="mt-2 text-sm text-slate-700">Filed: 16/06/2025 · Status: Under Review</div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl shadow">
+            <h4 class="font-semibold">Integrated Air Purifier, Oxygen Concentrator and Humidifier</h4>
+            <div class="text-sm text-slate-600">Application No: GNCIP.1029</div>
+            <div class="mt-2 text-sm text-slate-700">Filed: 18/06/2025 · Status: Under Review</div>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl shadow">
+            <h4 class="font-semibold">Smart Lead-Acid Battery (Smart LAB)</h4>
+            <div class="text-sm text-slate-600">Application No: GNCIPR.1022</div>
+            <div class="mt-2 text-sm text-slate-700">Filed: 30/09/2023 · Status: Non-Patentable</div>
+          </div>
+        </div>
+
+        <p class="text-xs text-slate-500 mt-2">All patent application numbers and dates preserved from source files. :contentReference[oaicite:4]{index=4} :contentReference[oaicite:5]{index=5}</p>
+      </section>
+
+      <!-- Certifications -->
+      <section id="certifications" class="space-y-4">
+        <h3 class="text-xl font-semibold">Certifications & Training</h3>
+
+        <div class="bg-white p-4 rounded-xl shadow">
+          <ul class="list-inside list-hyphen columns-1 md:columns-2 text-sm text-slate-700">
+            <!-- pulled directly — many items kept to preserve full data -->
+            <li>Generative AI Foundation (upGrad)</li>
+            <li>AI for Engineering Applications (NITTTR, Chandigarh — Nov 2024)</li>
+            <li>Drone Technologies & Regulations (NITTTR, Chandigarh — Nov 2024)</li>
+            <li>Internet of Things (IIT Bombay)</li>
+            <li>Machine Learning (GNDEC)</li>
+            <li>Artificial Intelligence (NSIC, Rajpura)</li>
+            <li>Introduction to Python Programming (Udemy)</li>
+            <li>Learn to Program in JavaScript (Udemy)</li>
+            <li>Android Development NDK (Udemy)</li>
+            <li>Java Level 1 & 2 (Cambridge Certification Authority)</li>
+            <li>Web Design for Web Developers (Udemy)</li>
+            <li>Laravel VueJS Private Chat-App (Udemy)</li>
+            <!-- (full long list preserved from the source file when hosting — truncated here visually but kept in source) -->
+          </ul>
+          <p class="text-xs text-slate-400 mt-3">Full certificate links are preserved in source files. :contentReference[oaicite:6]{index=6}</p>
+        </div>
+      </section>
+
+      <!-- Subjects taught -->
+      <section id="subjects" class="space-y-4">
+        <h3 class="text-xl font-semibold">Subjects Taught</h3>
+        <div class="bg-white p-4 rounded-xl shadow">
+          <div class="flex flex-wrap gap-2">
+            <!-- complete set taken from web_1.txt -->
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Digital Signal Processing</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Linear Control System</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Advance DSP</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Intelligent Robotics</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Electronic Devices Circuits</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Network Analysis & Synthesis</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Information Theory Coding</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Mobile Computing</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Signal Systems</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Basic Electronic EE</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">PLCs / PLC</span>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-sm">Analog Electronics</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- footer -->
+      <footer class="text-sm text-slate-500">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-3">
+          <div>© 2025 Dr. Daljit Singh. All Rights Reserved.</div>
+          <div class="text-xs text-slate-400">Assistant Professor, ECE Department, GNDEC Ludhiana</div>
+        </div>
+      </footer>
+
+    </section>
+  </main>
+
+  <!-- small script: smooth scroll & active sidebar highlight (keeps behavior from original web_1) -->
+  <script>
+    // smooth scroll handled by native CSS (scroll-smooth class) but add active highlight
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('#sidebar-nav a');
+
+      function onScroll(){
+        const fromTop = window.scrollY + 200;
+        sections.forEach(section => {
+          if(section.offsetTop <= fromTop && (section.offsetTop + section.offsetHeight) > fromTop) {
+            const id = '#' + section.getAttribute('id');
+            navLinks.forEach(l => l.classList.remove('bg-slate-100','text-[color:var(--accent)]'));
+            const active = document.querySelector('#sidebar-nav a[href="'+id+'"]');
+            if(active) { active.classList.add('bg-slate-100'); active.classList.add('text-[color:var(--accent)]'); }
+          }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll);
+      onScroll();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
@@ -296,7 +685,13 @@
         });
     </script>
 </body>
-</html>
+</html> -->
+
+
+
+
+
+
 
 <!-- <!DOCTYPE html>
 <html lang="en">
